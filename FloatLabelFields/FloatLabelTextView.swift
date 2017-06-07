@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable public class FloatLabelTextView: UITextView {
+@IBDesignable open class FloatLabelTextView: UITextView {
 	let animationDuration = 0.3
 	let placeholderTextColor = UIColor.lightGray.withAlphaComponent(0.65)
 	private var isIB = false
@@ -17,7 +17,7 @@ import UIKit
 	private var initialTopInset:CGFloat = 0
 	
 	// MARK:- Properties
-	override public var accessibilityLabel:String? {
+	override open var accessibilityLabel:String? {
 		get {
 			if text.isEmpty {
 				return title.text!
@@ -98,12 +98,12 @@ import UIKit
 	}
 	
 	// MARK:- Overrides
-	override public func prepareForInterfaceBuilder() {
+	override open func prepareForInterfaceBuilder() {
 		isIB = true
 		setup()
 	}
 	
-	override public func layoutSubviews() {
+	override open func layoutSubviews() {
 		super.layoutSubviews()
 		adjustTopTextInset()
 		hintLabel.alpha = text.isEmpty ? 1.0 : 0.0
